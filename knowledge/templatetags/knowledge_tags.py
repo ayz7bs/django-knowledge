@@ -31,5 +31,5 @@ def page_query(request, page_num):
     
 @register.simple_tag
 def split_list(request):
-    p = request|slice:":2"
+    p = 3
     return p
