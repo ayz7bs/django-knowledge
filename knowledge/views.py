@@ -33,7 +33,7 @@ def get_my_questions(request):
         return None
     else:
         return Question.objects.can_view(request.user)\
-                               .filter(user=request.user)[:5]
+                               .filter(user=request.user)
 
 
 def knowledge_index(request,
