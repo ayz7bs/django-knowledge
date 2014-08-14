@@ -1,8 +1,22 @@
 {% load i18n %}
 {% load url from future%}
-{% load knowledge_tags%}
 
 {% if my_questions %}
+
+<head>
+    <script>
+		$(document).ready( function() {
+            toggleItem()
+        });
+        function toggleItem() {
+			$('label.tree-toggler').click(function () {
+				$(this).parent().children('ul.tree').toggle(300);
+			});
+		}
+        
+	</script>
+</head>
+
 
   <h4>{% trans "My Questions" %}</h4>
   <hr />
@@ -16,8 +30,14 @@
     {% endfor %}
   </ul>
 
-  <br />
-    {{my_questions|slice:"5:"}}
+
+            <li><label class="tree-toggler">click</label>
+    {% for question in my_questions|slice:"5:" %}
+      <li><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
+    {% endfor %}
+            </li>  
+  
+  
   <br />
     
 {% endif %}
@@ -27,7 +47,7 @@
 
 <ul>
   {% for category in categories %}
-    <li><a href="{% url "knowledge_list_category" category.slug %}">{{ category.title }}</a></li>
+    <li><a href="{% url 'knowledge_list_category' category.slug %}">{{ category.title }}</a></li>
   {% endfor %}
 </ul>
 

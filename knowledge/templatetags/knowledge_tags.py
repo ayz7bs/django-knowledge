@@ -1,8 +1,6 @@
 from hashlib import md5
 from urllib import urlencode
 
-from django.core.paginator import Paginator
-
 from django import template
 
 register = template.Library()
@@ -27,9 +25,3 @@ def page_query(request, page_num):
     qs = request.GET.copy()
     qs['page'] = page_num
     return qs.urlencode().replace('&', '&amp;')
-
-    
-@register.simple_tag
-def split_list(request):
-    p = 3
-    return p
