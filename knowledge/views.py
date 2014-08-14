@@ -33,7 +33,7 @@ def get_my_questions(request):
         return None
     else:
         return Question.objects.can_view(request.user)\
-                               .filter(user=request.user)[:10]
+                               .filter(user=request.user)[:5]
 
 
 def knowledge_index(request,
@@ -43,7 +43,7 @@ def knowledge_index(request,
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     questions = Question.objects.can_view(request.user)\
-                                .prefetch_related('responses__question')[0:20]
+                                .prefetch_related('responses__question')[0:7]
     # this is for get_responses()
     [setattr(q, '_requesting_user', request.user) for q in questions]
 
