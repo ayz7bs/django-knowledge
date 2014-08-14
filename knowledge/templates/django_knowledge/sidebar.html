@@ -10,6 +10,7 @@
         });
         function toggleItem() {
 			$('label.tree-toggler').click(function () {
+                alert('click');
 				$(this).parent().children('ul.tree').toggle(300);
 			});
 		}
