@@ -9,9 +9,9 @@
             toggleItem()
         });
         function toggleItem() {
-			$('label.flip').click(function () {
-                alert('click');
-				$(this).parent().children('li.flipping').toggle(300);
+			$('.flip').click(function () {
+                alert('click ugh');
+				$(this).children('li.flipping').toggle(300);
 			});
 		}
         
@@ -34,7 +34,9 @@
   </ul>
 
 
-<li><label class="flip pointerMouse">click</label>
+<li class = "flip pointerMouse">
+
+click
 
     {% for question in my_questions|slice:"5:" %}
       <li class = "hiding flipping" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
