@@ -34,14 +34,18 @@
   </ul>
 
 
-<li class = "flip pointerMouse">
+<li class = "flip pointerMouse" data-toggle = "collapse" data-target = ".flipping">
 
 click
 
+<div class = "flipping">
     {% for question in my_questions|slice:"5:" %}
-      <li class = "hiding flipping" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
+      <li class = "hiding" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
     {% endfor %}
+    </div>
 </li>
+ 
+ 
  
   <br />
     
