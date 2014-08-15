@@ -9,14 +9,16 @@
             toggleItem()
         });
         function toggleItem() {
-			$('label.tree-toggler').click(function () {
+			$('label.flip').click(function () {
                 alert('click');
-				$(this).parent().children('ul.tree').toggle(300);
+				$(this).parent().children('li.tree').toggle(300);
 			});
 		}
         
 	</script>
 </head>
+
+
 
 
   <h4>{% trans "My Questions" %}</h4>
@@ -32,10 +34,10 @@
   </ul>
 
 
-<li><label class="tree-toggler">click</label>
+<li><label class="flip pointerMouse">click</label>
 
     {% for question in my_questions|slice:"5:" %}
-      <ul><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></ul>
+      <li class = "hiding" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
     {% endfor %}
 </li>
  
