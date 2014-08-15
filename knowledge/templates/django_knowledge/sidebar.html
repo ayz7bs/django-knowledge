@@ -9,10 +9,12 @@
             toggleItem()
         });
         function toggleItem() {
-			$('.flip').click(function () {
-                alert('click ugh');
-				$(this).children('li.flipping').toggle(300);
-			});
+$('.row .btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = $this.closest('.collapse-group').find('.collapse');
+    $collapse.collapse('toggle');
+});
 		}
         
 	</script>
@@ -33,7 +35,7 @@
     {% endfor %}
   </ul>
 
-
+<!--
 <li class = "flip pointerMouse" data-toggle = "collapse" data-target = ".flipping">
 
 click
@@ -44,6 +46,16 @@ click
     {% endfor %}
     </div>
 </li>
+-->
+
+<div class="row">
+        <div class="span4 collapse-group">
+          <h2>Heading</h2>
+           <p class="collapse">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
  
  
  
