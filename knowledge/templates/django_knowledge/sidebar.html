@@ -18,7 +18,21 @@
 	</script>
 </head>
 
-
+<head>
+    <script>
+		$(document).ready( function() {
+            toggleItem()
+        });
+        function toggleItem() {
+            $('label.flip').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $collapse = $this.find('.hiding');
+            $collapse.collapse('toggle');
+		}
+        
+	</script>
+</head>
 
 
   <h4>{% trans "My Questions" %}</h4>
