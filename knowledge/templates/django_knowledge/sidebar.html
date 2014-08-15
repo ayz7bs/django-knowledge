@@ -8,15 +8,13 @@
 		$(document).ready( function() {
             toggleItem()
         });
-        function toggleItem() {
-$('.row .btn').on('click', function(e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $collapse = $this.closest('.collapse-group').find('.collapse');
-    $collapse.collapse('toggle');
-});
-		}
         
+        function toggleItem() {
+			$('label.tree-toggler').click(function () {
+				$(this).parent().children('ul.tree').toggle(300);
+			});
+            
+		}
 	</script>
 </head>
 
@@ -35,27 +33,16 @@ $('.row .btn').on('click', function(e) {
     {% endfor %}
   </ul>
 
-<!--
-<li class = "flip pointerMouse" data-toggle = "collapse" data-target = ".flipping">
 
-click
+<li><label class = "tree-toggler pointerMouse">click</label>
 
-<div class = "flipping">
+<ul class = "tree hiding">
     {% for question in my_questions|slice:"5:" %}
-      <li class = "hiding" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
+      <li><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
     {% endfor %}
     </div>
-</li>
--->
+</ul>
 
-<div class="row">
-        <div class="span4 collapse-group">
-    {% for question in my_questions|slice:"5:" %}
-      <li class = "hiding" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
-    {% endfor %}
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
 
  
  
