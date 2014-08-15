@@ -11,28 +11,14 @@
         function toggleItem() {
 			$('label.flip').click(function () {
                 alert('click');
-				$('.flip').collapse()
+				$(this).parent().children('li.flipping').toggle(300);
 			});
 		}
         
 	</script>
 </head>
 
-<head>
-    <script>
-		$(document).ready( function() {
-            toggleItem()
-        });
-        function toggleItem() {
-            $('label.flip').on('click', function(e) {
-            e.preventDefault();
-            var $this = $(this);
-            var $collapse = $this.find('.hiding');
-            $collapse.collapse('toggle');
-		}
-        
-	</script>
-</head>
+
 
 
   <h4>{% trans "My Questions" %}</h4>
@@ -51,7 +37,7 @@
 <li><label class="flip pointerMouse">click</label>
 
     {% for question in my_questions|slice:"5:" %}
-      <li class = "hiding" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
+      <li class = "hiding flipping" ><a href="{{ question.get_absolute_url }}">{{ question.title }}</a></li>
     {% endfor %}
 </li>
  
